@@ -22,4 +22,4 @@ This repository contains the core files for the Fuzi Foundation landing page. Th
 
 ---
 
-*Developed with ❤️ by [Fuzi Apriliyadi](https://github.com/fuziapriliyadi)*
+*Developed with ❤️ by [Fuzi Apriliyadi](https://github.com/fuziapriliyadi)*git
