@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzi foundation - Web Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00b09b;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #004e92 0%, #00b09b 100%);
+            color: white;
+            text-align: center;
+            padding: 150px 5% 100px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #004e92;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 176, 155, 0.3);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #004e92 0%, #00b09b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #e0f7f4;
+            color: #00b09b;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #f8f9fa;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: #004e92;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+            background: #00b09b;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Hi, I'm Fuzi Foundation</h1>
+        <p>Web Developer | Music Producer | Creative Mind</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                I'm a passionate web developer from Bandung, Indonesia. 
+                I love creating beautiful, functional websites and bringing ideas to life through code.
+            </p>
+            <p>
+                When I'm not coding, you'll find me producing electronic music under my artist names 
+                NEXIR (EDM) and ZEEVOID (Ambient). I believe in the intersection of technology and creativity.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">🎵</div>
+                <div class="project-content">
+                    <h3>NEXIR - Silent Voltage</h3>
+                    <p>Landing page for electronic music album with countdown timer and streaming integration.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">🌌</div>
+                <div class="project-content">
+                    <h3>ZEEVOID - Lunar Veil</h3>
+                    <p>Cosmic-themed landing page for ambient music project with particle effects.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Particles.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">💼</div>
+                <div class="project-content">
+                    <h3>Business Landing Page</h3>
+                    <p>Modern, responsive landing page template for businesses with smooth animations.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Responsive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image">🔬</div>
+                <div class="project-content">
+                    <h3>Hardware Repair Tracker</h3>
+                    <p>Aplikasi monitoring perbaikan hardware berbasis Python untuk manajemen inventori sparepart.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Database</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="skills" id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-icon">📝</div>
+                <div class="skill-name">HTML5</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🎨</div>
+                <div class="skill-name">CSS3</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">⚡</div>
+                <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">📱</div>
+                <div class="skill-name">Responsive Design</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🐍</div>
+                <div class="skill-name">Python</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🎵</div>
+                <div class="skill-name">Music Production</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🔧</div>
+                <div class="skill-name">Micro Soldering</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <h2>Let's Work Together</h2>
+        <p>Have a project in mind? Let's make it happen!</p>
+        <a href="mailto:fuziapriliyadi0404@gmail.com" class="btn">Get In Touch</a>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/fuziapriliyadi" class="social-link" title="Instagram">📷</a>
+            <a href="https://github.com/fuziapriliyadi/fuzi-foundation" class="social-link" title="GitHub">💻</a>
+            <a href="https://linkedin.com/in/fuziapriliyadi" class="social-link" title="LinkedIn">💼</a>
+            <a href="mailto:fuziapriliyadi0404@gmail.com" class="social-link" title="Email">✉️</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Fuzi foundation. Built with passion and code.</p>
+    </footer>
+
+    <!-- SMOOTH SCROLL SCRIPT -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Biodata Saya</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+        .contact { background:#007bff; color:#fff; border:none; border-radius:4px; }
+    </style>
+</head>
+<body>
+    <!-- ...existing code... -->
+    <h1 id="nama">Fuzi Apriliyadi</h1>
+    <p id="bio">Umur: 30 tahun. Kota asal: Bandung.</p>
+
+    <h2>Hobi</h2>
+    <ul id="hobi-list">
+        <li>Otomotif</li>
+        <li>Musik</li>
+        <li>Bermain alat musik</li>
+    </ul>
+
+    <!-- tombol menggunakan data-email dan class untuk styling -->
+    <button type="button" class="contact" id="hubungi" data-email="fuzi@example.com">Hubungi Saya</button>
+
+    <script>
+        // ...existing code...
+        document.getElementById('hubungi').addEventListener('click', function () {
+            const email = this.dataset.email;
+            window.location.href = 'mailto:' + email + '?subject=Halo';
+        });
+    </script>
+</body>
+</html>
